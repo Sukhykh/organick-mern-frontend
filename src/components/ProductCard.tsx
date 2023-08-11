@@ -1,6 +1,6 @@
-import { useCartStore } from "../store/cartStore.ts"
+
 import { Product } from '../types/product.ts'
-import { useState } from 'react'
+
 const baseUrl = import.meta.env.VITE_SERVER
 
 import { useCart } from "../context/CartContext.tsx"

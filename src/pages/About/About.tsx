@@ -1,9 +1,7 @@
-import React from 'react'
+
 import { useProductStore } from "../../store/productStore.ts"
 import { useCartStore } from "../../store/cartStore.ts"
-import { Product } from '../../types/product.ts'
 
-import { ProductCard } from '../../components/ProductCard.tsx'
 
 const baseUrl = import.meta.env.VITE_SERVER
 

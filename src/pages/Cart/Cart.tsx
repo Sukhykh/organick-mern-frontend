@@ -1,4 +1,4 @@
-import { OrderForm } from "../../components/orderForm.tsx"
+import { OrderForm } from "../../components/OrderForm.tsx"
 export const Cart = () => {
 
 

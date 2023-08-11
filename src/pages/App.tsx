@@ -1,5 +1,5 @@
 import { 
-  createBrowserRouter,
+  createHashRouter,
 
   RouterProvider,
 
@@ -19,7 +19,7 @@ import { Orders } from './Orders/Orders.tsx';
 import { AddProduct } from './AddProduct/AddProduct.tsx';
 import { Error } from './Error/Error.tsx';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <RootLayout />,
@@ -49,7 +49,10 @@ const router = createBrowserRouter([
       },
     ],
   }
-]);
+],
+{
+  basename: "/app",
+});
 
 
 

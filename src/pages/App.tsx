@@ -49,10 +49,7 @@ const router = createHashRouter([
       },
     ],
   }
-],
-{
-  basename: "/app",
-});
+]);
 
 
 

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react"
+import { ReactNode, createContext, useContext, useState } from "react"
 
 import { useLocalStorage } from "../hooks/useLocalStorage.ts"
 import { useProductStore } from "../store/productStore.ts"
@@ -13,6 +13,7 @@ type CartProviderProps = {
 }
 
 interface State {
+    isOpenBurger: boolean;
     cartItems: Array<CartProduct>
     cartQuantity: number
     cartTotal: number
@@ -20,7 +21,8 @@ interface State {
 }
 
 interface Action {
-	// getItemQuantity: (id: string) => number;
+    setOpenBurger: () => void;
+    setCloseBurger: () => void;
 	increaseCartItemsQuantity: (id: string) => void;
 	decreaseCartItemsQuantity: (id: string) => void;
 	removeFromCart: (id: string) => void;
@@ -34,15 +36,20 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }: CartProviderProps) => {
     const { findProductById } = useProductStore(state => ({ findProductById: state.findProductById }))
-
+    
+    const [isOpenBurger, setIsOpenBurger]= useState(false)
     const [cartItems, setCartItems] = useLocalStorage<Array<CartProduct>>("cart-context", []);
     const cartQuantity = getTotalQuantity(cartItems) || 0;
     const cartTotal = getTotalPrice(cartItems) || 0;
     const cartDiscount = getTotalDiscount(cartItems) || 0;
 
-    // const getItemQuantity = (id: string) => {
-	// 	return cartItems.find(item => item.product._id.toString() === id.toString())?.quantity || 0;
-	// };
+    const setOpenBurger = () => {
+        setIsOpenBurger(true)
+    }
+
+    const setCloseBurger = () => {
+        setIsOpenBurger(false)
+    }
 
     const increaseCartItemsQuantity = (id: string) => {
         setCartItems(currentItems => {
@@ -89,11 +96,13 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return (
 		<CartContext.Provider
 			value={{
+                isOpenBurger,
 				cartItems,
 				cartQuantity,
                 cartTotal,
                 cartDiscount,
-				// getItemQuantity,
+                setOpenBurger,
+                setCloseBurger,
 				increaseCartItemsQuantity,
 				decreaseCartItemsQuantity,
 				removeFromCart,

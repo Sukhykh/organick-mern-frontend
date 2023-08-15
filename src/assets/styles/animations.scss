@@ -1,0 +1,26 @@
+@keyframes mobileMenuNavigation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes mobileMenuList {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 25rem;
+    }
+}
+
+@keyframes mobileMenuItem {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
+}

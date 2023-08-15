@@ -1,0 +1,19 @@
+@import './reset.scss';
+@import './module.scss';
+
+/* General styles */
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+	width: 1rem;
+}
+::-webkit-scrollbar-track {
+	background-color: transparent;
+    opacity: 0.5;
+}
+::-webkit-scrollbar-thumb {
+	background: $yellowAccent;
+}

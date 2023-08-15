@@ -1,0 +1,86 @@
+@function dinamic1920($n) {
+	@return calc($n / 1920px) * 100 * 1vw;
+}
+
+@function dinamic1400($n) {
+	@return calc($n / 1400px) * 100 * 1vw;
+}
+
+/* containers */
+@mixin containerHeader {
+    max-width: dinamic1920(1600px);
+    width: 100%;
+    margin-inline: auto;
+
+    @media screen and (min-width: $breakpoint192) {
+		max-width: 1600px;
+	}
+
+    @media screen and (max-width: $breakpoint140) {
+		max-width: dinamic1400(1300px);
+	}
+}
+
+@mixin container($width: 1400px) {
+    max-width: dinamic1920($width);
+    width: 100%;
+    margin-inline: auto;
+
+    @media screen and (min-width: $breakpoint192) {
+		max-width: 1400px;
+	}
+}
+
+/* fonts */
+@mixin singleFont ($style, $fw, $fs, $lh) {
+    font-family: $style;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+
+/* action elements */
+@mixin headerLinks {
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        inset-inline-start: 0;
+        inset-block-start: -0.5rem;
+        width: 0;
+        height: 0.2rem;
+        background-color: $greenAccent;
+        transition: width 0.3s linear;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        inset-inline-end: 0;
+        inset-block-end: -0.5rem;
+        width: 0;
+        height: 0.2rem;
+        background-color: $greenAccent;
+        transition: width 0.3s linear;
+    }
+
+    &:hover {
+        @media (hover: hover) {
+            &:hover::after,
+            &:hover::before {
+                width: 100%;
+            }
+        }
+    }
+
+    &:focus::after,
+    &:focus::before {
+        width: 100%;
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+}

@@ -1,0 +1,32 @@
+@import '../../assets/styles/module.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+
+    &__imgWrapper {
+        width: 3.7rem;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__textWrapper {
+        &_header {
+            @media screen and (max-width: $breakpoint55) {
+                display: none;
+            }
+        }
+    }
+
+    &__text {
+        @include singleFont($roboto, 700, 3.8rem, 120%);
+        text-transform: capitalize;
+        color: $titleColor;
+    }
+
+}

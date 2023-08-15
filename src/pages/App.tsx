@@ -1,12 +1,6 @@
-import { 
-  createHashRouter,
-
-  RouterProvider,
-
-} from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import { AdminLayout, PagesLayout, RootLayout } from '../layouts/index.tsx';
-
 import { Home } from './Home/Home.tsx';
 import { About } from './About/About.tsx';
 import { Service } from './Service/Service.tsx';
@@ -50,8 +44,6 @@ const router = createHashRouter([
     ],
   }
 ]);
-
-
 
 export const App = () => {
   return <RouterProvider router={router} />;

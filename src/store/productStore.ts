@@ -1,8 +1,8 @@
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
-import { useFetchingData } from '../hooks/useFetchingData' 
-import { Product } from '../types/product'
+import { useFetchingData } from '../hooks/useFetchingData.ts' 
+import { Product } from '../types/product.ts'
 
 interface State {
     products: Array<Product>

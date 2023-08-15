@@ -1,0 +1,52 @@
+@import '../../assets/styles/module.scss';
+
+.header {
+    &__container {
+        @include containerHeader;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 6.9rem;
+        gap: 3rem;
+
+        @media screen and (max-width: $breakpoint110) {
+            padding-block: 3rem;
+        }
+
+        @media screen and (max-width: $breakpoint55) {
+            gap: 1rem;
+        }
+    }
+
+    &__menuWrapper {
+        display: flex;
+        align-items: center;
+        gap: dinamic1920(150px);
+
+        @media screen and (max-width: $breakpoint170) {
+            gap: 5rem;
+        }
+
+        @media screen and (max-width: $breakpoint120) {
+            gap: 3rem;
+        }
+
+        @media screen and (max-width: $breakpoint120) {
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    &__btnWrapper {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+        @media screen and (max-width: $breakpoint55) {
+            gap: 1rem;
+        }
+    }
+}

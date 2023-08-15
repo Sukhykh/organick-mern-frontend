@@ -1,47 +1,37 @@
-import { NavLink } from 'react-router-dom';
+import { useWidthValue } from '../../hooks/useWidthValue.ts';
+import { useCart } from '../../context/CartContext.tsx';
+import { DesktopMenu } from '../DesktopMenu/DesktopMenu.tsx';
+import { MobileMenu } from '../MobileMenu/MobileMenu.tsx';
 
-// import styles from './Navigation.module.scss';
+import styles from './Navigation.module.scss';
+
 
 export const Navigation = () => {
+
+    const { setOpenBurger, setCloseBurger, isOpenBurger } = useCart()
+    
+    const widthValue = useWidthValue()
+    if (widthValue > 1100 && isOpenBurger) {
+        setCloseBurger()
+    }
+
+    const handleBurger = (e: any) => {
+        e.preventDefault()
+        isOpenBurger ? setCloseBurger() : setOpenBurger()
+    }
+
     return (
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/" end> home </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="about"> about </NavLink>
-                    </li>
-                    <li>
-                        <ul>
-                            <span>pages</span>
-                            <li>
-                                <NavLink to="pages/service"> service </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="pages/quality"> quality </NavLink>
-                            </li>
-                        </ul>
-                        
-                    </li>
-                    <li>
-                        <NavLink to="shop"> shop </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="projects"> projects </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="news"> news </NavLink>
-                    </li>
-                </ul>
-            </nav>
-                <div>
-                    <NavLink to="cart"> cart </NavLink>
-                </div>
-                <div>
-                    <NavLink to="admin"> admin </NavLink>
-                </div>
-        </header>
+        <div className={ styles.headerMenu }>
+            {widthValue > 1100 && <DesktopMenu/>}
+            {widthValue <= 1100 && isOpenBurger && <MobileMenu />}
+            <div className={ isOpenBurger ? `${ styles.headerMenu__burger } ${ styles.headerMenu__burger_opened }` : styles.headerMenu__burger }>
+                <a className={ styles.headerMenu__burgerInner } href='#' onClick={ (e) => handleBurger(e) }>
+                    <div className={ `${ styles.headerMenu__burgerIcon } ${ styles.headerMenu__burgerIcon_top }` }></div>
+                    <div className={ `${ styles.headerMenu__burgerIcon } ${ styles.headerMenu__burgerIcon_center }` }></div>
+                    <div className={ `${ styles.headerMenu__burgerIcon } ${ styles.headerMenu__burgerIcon_bottom }` }></div>
+                </a>
+            </div>
+        </div>
+        
     )
 }

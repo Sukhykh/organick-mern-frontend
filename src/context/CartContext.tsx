@@ -44,10 +44,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const cartDiscount = getTotalDiscount(cartItems) || 0;
 
     const setOpenBurger = () => {
+        document.body.style.overflow = 'hidden'
         setIsOpenBurger(true)
     }
 
     const setCloseBurger = () => {
+        document.body.style.overflow = ''
         setIsOpenBurger(false)
     }
 

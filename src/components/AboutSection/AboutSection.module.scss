@@ -1,0 +1,60 @@
+@import '../../assets/styles/module.scss';
+
+.aboutSection {
+    background-color: $sectionGray;
+
+    &__background {
+        position: absolute;
+        inset: 10rem -15rem;
+        max-width: 91.1rem;
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint140) {
+            position: static;
+        }
+    }
+
+    &__backgroundImg {
+        width: 100%;
+        height: auto;
+    }
+
+    &__container {
+        position: relative;
+        @include container;
+    }
+
+    &__wrapper {
+        padding-block: 18.6rem 19.9rem;
+        display: flex;
+        justify-content: flex-end;
+
+        @media screen and (max-width: $breakpoint80) {
+            padding-block: 5rem;
+            flex-direction: column;
+        }
+    }
+
+    &__contant {
+        position: relative;
+        max-width: 70.2rem;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &__titleWrapper {
+        margin-block: 0.8rem 1.4rem;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+    }
+
+    &__cardWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-block: 4.6rem;
+    }
+} 

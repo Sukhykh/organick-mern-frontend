@@ -29,6 +29,10 @@
     @media screen and (min-width: $breakpoint192) {
 		max-width: 1400px;
 	}
+
+    @media screen and (max-width: $breakpoint140) {
+		max-width: dinamic1400(1300px);
+	}
 }
 
 /* fonts */

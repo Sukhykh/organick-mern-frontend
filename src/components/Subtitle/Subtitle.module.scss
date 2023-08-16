@@ -1,0 +1,14 @@
+@import '../../assets/styles/module.scss';
+
+.subtitle {
+    @include singleFont($yellowtail, 400, 3.6rem, 120%);
+    text-transform: capitalize;
+
+    &_green {
+        color: $subtitleGreen;
+    }
+
+    &_white {
+        color: $white;
+    }
+}

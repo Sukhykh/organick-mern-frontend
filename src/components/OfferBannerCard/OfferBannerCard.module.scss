@@ -1,0 +1,45 @@
+@import '../../assets/styles/module.scss';
+
+.offerBannerCard {
+    position: relative;
+
+    &__imgWrapper {
+        max-width: 68.2rem;
+        width: 100%;
+        border-radius: 3rem;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__textWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        padding-inline-start: 7.3rem;
+        width: 34.5rem;
+
+        @media screen and (max-width: $breakpoint45) {
+            width: 100%;
+            padding-inline: 1rem;
+        }
+    }
+
+    &__title {
+        @include singleFont($roboto, 800, 4rem, 120%);
+
+        &_white {
+            color: $white;
+        }
+
+        &_blue {
+            color: $titleColor;
+        }
+    }
+}

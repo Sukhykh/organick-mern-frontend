@@ -1,0 +1,26 @@
+@import '../../assets/styles/module.scss';
+
+.heroTitle {
+    @include singleFont($roboto, 800, 7rem, 120%);
+
+    &_black {
+        color: $titleColor;
+    }
+
+    &_white {
+        color: $white;
+    }
+}
+
+.title {
+    @include singleFont($roboto, 800, 5rem, 120%);
+    text-transform: capitalize;
+
+    &_black {
+        color: $titleColor;
+    }
+
+    &_white {
+        color: $white;
+    }
+}

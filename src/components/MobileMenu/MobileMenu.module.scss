@@ -8,9 +8,12 @@
     transform-origin: left;
     animation: mobileMenuNavigation 0.3s;
     animation-fill-mode: forwards;
+    height: calc(100vh - 20.4rem);
+    z-index: 2;
 
     @media screen and (max-width: $breakpoint110) {
         inset-block-start: 12.6rem;
+        height: calc(100vh - 12.6rem);
     }
 
     &__list {
@@ -22,7 +25,8 @@
         background-color: $lightGreen;
         transform-origin: left;
         animation: mobileMenuList 0.3s;
-        animation-fill-mode: forwards;    
+        animation-fill-mode: forwards;  
+        height: 100%;  
     }
 
     &__item {

@@ -4,7 +4,7 @@ p, a, img, form, label,
 input, select, ul, li,
 article, aside, footer,
 header, main, menu, nav,
-section, button {
+section, button, textarea {
     margin: 0;
     padding: 0;
     border: 0;
@@ -29,7 +29,8 @@ a {
 }
 
 button,
-input {
+input,
+textarea {
     outline: none;
     background: transparent;
 }

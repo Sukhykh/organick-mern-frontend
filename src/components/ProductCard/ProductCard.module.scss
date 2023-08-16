@@ -1,0 +1,105 @@
+@import '../../assets/styles/module.scss';
+
+.productCard {
+    cursor: pointer;
+    background-color: $sectionGray;
+    border-radius: 3rem;
+
+    &:hover {
+        box-shadow: 0 0 0.5rem 0.5rem $heroBackground;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__tag {
+        width: fit-content;
+        padding: 0.5rem 1.2rem;
+        border-radius: 0.8rem;
+        background-color: $titleColor;
+        @include singleFont($openSans, 600, 1.5rem, 120%);
+        color: $white;
+        text-transform: capitalize;
+        margin-block-start: 3rem;
+        margin-inline: 3rem;
+    }
+
+    &__imgWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 33.5rem;
+        aspect-ratio: 1;
+
+        @media screen and (max-width: $breakpoint45) {
+            height: 28rem;
+        }
+    }
+
+    &__img {
+        width: auto;
+        height: 100%;
+        background: $sectionGray;
+        mix-blend-mode: multiply;
+    }
+
+    &__title {
+        @include singleFont($roboto, 600, 2rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+        margin-inline: 3rem;
+    }
+
+    &__priceBar {
+        display: flex;
+        justify-content: space-between;
+        border-top: 0.1rem solid $productCardGray;
+        padding-block-start: 0.6rem;
+        margin-block: 1.7rem;
+        margin-inline: 3rem;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+
+    &__priceOld {
+        @include singleFont($openSans, 600, 1.5rem, 120%);
+        color: $productCardGray;
+        text-decoration: line-through;
+    }
+
+    &__priceCurent {
+        @include singleFont($openSans, 700, 1.8rem, 120%);
+        color: $titleColor;
+    }
+
+    &__rating {
+        display: flex;
+        position: relative;
+        width: fit-content;
+    }
+
+    &__star {
+        display: flex;
+    }
+
+    &__starSvg {
+        width: 1.7rem; 
+        aspect-ratio: 1;
+    }
+
+    &__starIcon {
+        &_gold {
+            fill: $productCardGold;
+        }
+
+        &_gray {
+            fill: $productCardGray;
+        }
+    }
+}

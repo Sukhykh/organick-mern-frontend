@@ -1,12 +1,11 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { AdminNavigation } from '../pages/Admin/AdminNavigation';
 
 export const AdminLayout = () => {
   return (
     <>
       <main>
-      <div>
-                    <NavLink to="addProduct"> add product </NavLink>
-                </div>
+        <AdminNavigation/>
         <Outlet />
       </main>
     </>

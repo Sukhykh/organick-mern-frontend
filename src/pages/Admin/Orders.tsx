@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { axiosBasic } from "../../../axiosConfig"
+import { axiosBasic } from "../../../axiosConfig.ts"
 import { Order } from "../../types/order.ts"
 
 export const Orders = () => {

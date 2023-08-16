@@ -9,8 +9,8 @@ import { Shop } from './Shop/Shop.tsx';
 import { Projects } from './Projects/Projects.tsx';
 import { Blog } from './Blog/Blog.tsx';
 import { Cart } from './Cart/Cart.tsx';
-import { Orders } from './Orders/Orders.tsx';
-import { AddProduct } from './AddProduct/AddProduct.tsx';
+import { Orders } from './Admin/Orders.tsx';
+import { AdminPanel } from './Admin/AdminPanel.tsx';
 import { Error } from './Error/Error.tsx';
 
 const router = createHashRouter([
@@ -37,8 +37,8 @@ const router = createHashRouter([
         path: 'admin', 
         element: <AdminLayout />, 
         children: [
-          { index: true, element: <Orders /> },
-          { path: 'addProduct', element: <AddProduct /> },
+          { path: 'orders', element: <Orders /> },
+          { path: 'addProduct', element: <AdminPanel /> },
         ]
       },
     ],

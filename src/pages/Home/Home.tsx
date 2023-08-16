@@ -33,8 +33,8 @@ export const Home = () => {
 
 
 
-{/*     
- <h1>HOME PAGE</h1>
+    
+ {/* <h1>HOME PAGE</h1>
       <button onClick={setProducts}>fetch</button>
       <button onClick={consoling}>console</button>
 

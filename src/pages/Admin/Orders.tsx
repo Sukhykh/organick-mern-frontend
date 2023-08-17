@@ -1,50 +1,55 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { axiosBasic } from "../../../axiosConfig.ts"
 import { Order } from "../../types/order.ts"
 
+import styles from './Orders.module.scss'
+
 export const Orders = () => {
-   const [orders, setOrders] = useState<Array<Order>>([])
-   
-   const getAllOrders = async () => {
-    try {
-        const ordersArr = await axiosBasic.get('/orders')
-        setOrders(ordersArr.data)
-    } catch (error) {
-        
+    const [orders, setOrders] = useState<Array<Order>>([])
+
+    const getAllOrders = async () => {
+        try {
+            const ordersArr = await axiosBasic.get('/orders')
+            setOrders(ordersArr.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
-   }
-   const consoling = () => {
-    console.log(orders)
-   }
+
+    useEffect(() => {
+        getAllOrders()
+    }, [])
 
     return (
-        <>
-                <h1>ORDERS PAGE</h1>
-
-<button onClick={getAllOrders}>fetch</button>
-<button onClick={consoling}>console</button>
-<div>
-    {orders && orders.map(el => {
-        return (
-            <>
-            <h2>user: {el?.user?.fullName}</h2>
-            <h3>order</h3>
-            <div>
-                {el?.products?.map(item => {
-                    return (
-                        <>
-                            <span>{item.productId.title}</span>
-                            <span>{item.quantity}</span>
-                        </>
-                    )
-                })}
+        <section className={ styles.orders }>
+            <div className={ styles.orders__container }>
+                <div className={ styles.orders__wrapper }>
+                    {orders && orders.map(order => (
+                        <div className={ styles.orders__item } key={order._id}>
+                            <div className={ styles.orders__titleWrapper }>
+                                <p className={ styles.orders__title }>Order number:</p>
+                                <p className={ styles.orders__title }>{order._id}</p>
+                            </div>
+                            <div className={ styles.orders__userWrapper }>
+                                <p className={ styles.orders__user }>User: {order?.user?.fullName}</p>
+                                <p className={ styles.orders__user }>Email: {order?.user?.email}</p>
+                                <p className={ styles.orders__user }>Phone: {order?.user?.phoneNumber}</p>
+                            </div>
+                            <div className={ styles.orders__productWrapper }>
+                                <p className={ styles.orders__product }>Ordered products:</p>
+                                {order?.products?.map(item =>  (
+                                    <div className={ styles.orders__productInner } key={item._id}>
+                                        <span className={ styles.orders__productTitle }>{item.productId.title}:</span>
+                                        <span className={ styles.orders__productQuantity }>{item.quantity}</span>
+                                    </div>
+                                )
+                            )}
+                            </div>
+                        </div>
+                        )
+                    )}
+                </div>
             </div>
-            </>
- 
-        )
-    })}
-</div>
-        </>
-
+        </section>
     )
 }

@@ -7,6 +7,7 @@ import { Product } from '../types/product.ts'
 interface State {
     products: Array<Product>
     productsToShow: Array<Product>
+    curentProduct: string
     slicer: number | null
 }
 
@@ -15,6 +16,7 @@ interface Action {
     setSlicertoNull: () => void
     setProducts: () => void
     setProductsToShow: () => void
+    setCurentProduct: (id: string) => void
     findProductById: (id: Product['_id']) => Product | null;
 }
 
@@ -24,11 +26,12 @@ export const useProductStore = create<State & Action>()(
             products: [],
             productsToShow: [],
             slicer: 8,
+            curentProduct: '',
             setProducts: async () => { 
                 try {
-                    const data = await useFetchingData()
-                    if (!data) return console.log('No data from server')
-                    set({ products: data })
+                    await useFetchingData()
+                    .then(response => set({ products: response }))
+                    .then(() => get().setProductsToShow())
                 }
                 catch (error: any) {
                     throw new Error('Error fetching data: ' + error.message);
@@ -41,6 +44,15 @@ export const useProductStore = create<State & Action>()(
                     productsData.sort((a:Product, b:Product) => b.discount - a.discount).slice(0, lastIndex) :
                     productsData.sort((a:Product, b:Product) => b.discount - a.discount)
                 set({ productsToShow: productsToShow })
+            },
+            setCurentProduct: (id) => {
+                if (id) {
+                    const curent =  get().findProductById(id)
+                    const curentId = curent?._id
+                    set({ curentProduct: curentId })
+                } else {
+                    set({ curentProduct: '' })
+                }
             },
             findProductById: (id) => {
                 const productArr = [...get().products]

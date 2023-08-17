@@ -21,8 +21,11 @@ interface State {
 }
 
 interface Action {
+    clenCart: () => void
     setOpenBurger: () => void;
     setCloseBurger: () => void;
+    getCartItemQuantity: (id: string) => number;
+    setRundomQuantity: (id: string, value: number) => void
 	increaseCartItemsQuantity: (id: string) => void;
 	decreaseCartItemsQuantity: (id: string) => void;
 	removeFromCart: (id: string) => void;
@@ -35,8 +38,7 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-    const { findProductById } = useProductStore(state => ({ findProductById: state.findProductById }))
-    
+    const findProductById = useProductStore(state => state.findProductById)
     const [isOpenBurger, setIsOpenBurger]= useState(false)
     const [cartItems, setCartItems] = useLocalStorage<Array<CartProduct>>("cart-context", []);
     const cartQuantity = getTotalQuantity(cartItems) || 0;
@@ -51,6 +53,33 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const setCloseBurger = () => {
         document.body.style.overflow = ''
         setIsOpenBurger(false)
+    }
+
+    const getCartItemQuantity = (id: string) => {
+        const targetProduct = cartItems.find(el => el.product._id === id)
+        return targetProduct ? targetProduct.quantity : 0
+    }
+
+    const setRundomQuantity = (id: string, value: number) => {
+        if (value === 0 ) {
+            removeFromCart(id)
+        } else {
+            setCartItems(currentItems => {
+                const targetProduct = findProductById(id)
+                if (!targetProduct) return currentItems;
+                if (!currentItems.find(item => item.product._id.toString() === id.toString())) {
+                    return [...currentItems, { product: targetProduct, quantity: value }];
+                } else {
+                    return currentItems.map(item => {
+                        if (item.product._id.toString() === id.toString()) {
+                            return { ...item, quantity: value };
+                        } else {
+                            return item;
+                        }
+                    });
+                }
+            });
+        }
     }
 
     const increaseCartItemsQuantity = (id: string) => {
@@ -95,6 +124,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 		});
 	};
 
+    const clenCart = () => {
+        cartItems.forEach(el => removeFromCart(el.product._id))
+    }
+
     return (
 		<CartContext.Provider
 			value={{
@@ -105,9 +138,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 cartDiscount,
                 setOpenBurger,
                 setCloseBurger,
+                setRundomQuantity,
+                getCartItemQuantity,
 				increaseCartItemsQuantity,
 				decreaseCartItemsQuantity,
 				removeFromCart,
+                clenCart
 			}}
 		>
 			{children}

@@ -1,0 +1,142 @@
+@import '../../assets/styles/module.scss';
+
+.cartMenuItem {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+
+    @media screen and (max-width: $breakpoint70) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__product {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        @media screen and (max-width: $breakpoint95) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media screen and (max-width: $breakpoint70) {
+            align-items: center;
+        }
+    }
+
+    &__imgWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20rem;
+        aspect-ratio: 1;
+    }
+
+    &__img {
+        height: 100%;
+        width: auto;
+        background: $cartBackground;
+        mix-blend-mode: multiply;
+    }
+
+    &__descr {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint120) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media screen and (max-width: $breakpoint70) {
+            align-items: center;
+        }
+    }
+
+    &__title,
+    &__priceCurent {
+        @include singleFont($roboto, 600, 4rem, 120%);
+        color: $titleColor;
+    }
+
+    &__priceBar {
+        display: flex;
+        align-items: baseline;
+        gap: 2rem;
+    }
+
+    &__priceOld {
+        @include singleFont($roboto, 700, 2.4rem, 120%);
+        color: $productCardGray;
+        text-decoration: line-through;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__cartLable {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint70) {
+            position: static;
+        }
+    }
+
+    &__cartTitle {
+        @include singleFont($roboto, 700, 3.2rem, 120%);
+        white-space: nowrap;
+        color: $titleColor;
+    }
+
+    &__cartInput {
+        width: 13.4rem;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: rgba(39, 76, 91, 0.4);
+        border-radius: 16px;
+        border: 2px solid $titleColor;
+        padding: 2.6rem 3rem;
+        background-color: $white;
+    }
+
+    &__button {
+        position: absolute;
+        inset-inline-end: -8rem;
+        display: block;
+        width: fit-content;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $white;
+        padding: 1.2rem 2.5rem;
+        background-color: $titleColor;
+        border-radius: 1.6rem;
+        z-index: 1;
+        transition: all 0.3s linear;
+
+        @media screen and (max-width: $breakpoint140) {
+            position: static;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.8;
+        }
+
+        @media screen and (max-width: $breakpoint70) {
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+        }
+    }
+}
+

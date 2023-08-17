@@ -2,6 +2,7 @@
 
 .heroTitle {
     @include singleFont($roboto, 800, 7rem, 120%);
+    text-transform: capitalize;
 
     &_black {
         color: $titleColor;

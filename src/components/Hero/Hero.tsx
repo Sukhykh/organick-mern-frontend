@@ -11,7 +11,7 @@ export const Hero = () => {
             <div className={ styles.hero__background }>
                 <picture>
                     <source srcSet={ backgroundWebp } type="image/webp"/>
-                    <img className={ styles.hero__backgroundImg } src={ backgroundPng } alt="" width="1920" height="898"/>
+                    <img className={ styles.hero__backgroundImg } src={ backgroundPng } alt="hero" width={1920} height={898}/>
                 </picture>
             </div>
             <div className={ styles.hero__container }>

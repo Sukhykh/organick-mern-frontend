@@ -12,18 +12,18 @@ export const HeaderCart = () => {
 
     const { cartQuantity } = useCart()
     return (
-        <div className={styles.headerCart}>
-            <NavLink className= {styles.headerCart__btn } to='cart' onClick={ handleHeaderCartClick } >
+        <NavLink className={styles.headerCart} to='cart' onClick={ handleHeaderCartClick } >
+            <div className= {styles.headerCart__btn } >
                 <svg className={ styles.headerCart__svg }>
                     <use className={ styles.headerCart__icon } xlinkHref={ `${ sprite }#cart` } />
                 </svg>
-            </NavLink>
+            </div>
             <p className={ styles.headerCart__title }>
                 Cart (<span className={ styles.headerCart__quantity }>{cartQuantity}</span>)
             </p>
             <div className={ styles.headerCart__quantityMobile }>
                 {cartQuantity}
             </div>
-        </div>
+        </NavLink>
     )
 }

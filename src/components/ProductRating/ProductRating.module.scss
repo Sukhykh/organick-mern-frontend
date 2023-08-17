@@ -1,0 +1,20 @@
+@import '../../assets/styles/module.scss';
+
+.stars {
+    display: flex;
+
+    &__svg {
+        width: 1.7rem; 
+        aspect-ratio: 1;
+    }
+    
+    &__icon {
+        &_gold {
+            fill: $productCardGold;
+        }
+    
+        &_gray {
+            fill: $productCardGray;
+        }
+    }
+}

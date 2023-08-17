@@ -15,7 +15,7 @@ export const SiteButton: React.FC<SiteButtonProps> = ({ title, yellow, path }) =
             <span className={ styles.button__buttonText } >{title}</span>
             <span className={ styles.button__buttonItem }>
                 <svg className={ styles.button__buttonSvg }>
-                    <use className={ styles.bbutton__uttonIcon } xlinkHref={ `${ sprite }#buttonArrow` } />
+                    <use className={ styles.button__buttonIcon } xlinkHref={ `${ sprite }#buttonArrow` } />
                 </svg>
             </span>
         </NavLink>  

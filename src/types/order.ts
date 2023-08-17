@@ -13,6 +13,6 @@ export type Order = {
         message: string,
         phoneNumber: string,
     },
-    length: number,
+    _id: number,
     __v: number
 }

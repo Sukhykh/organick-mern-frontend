@@ -1,0 +1,155 @@
+@import '../../assets/styles/module.scss';
+
+.orderForm {
+    margin-block-end: 14.5rem;
+    background-color: $cartBackground;
+
+    &__container {
+        @include container;
+    }
+
+    &__wrapper {
+        padding-block-end: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__buttton {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: fit-content;
+        padding: 2.8rem 3.9rem;
+        border-radius: 1.6rem;
+        background: $gray;
+        transition: all 0.3s linear;
+
+        &_activ {
+            background: $titleColor;
+
+            &:hover,
+            &:focus,
+            &:active {
+                opacity: 0.7;
+            }
+
+            & .orderForm__buttonText {
+                color: $white
+            }
+
+            & .orderForm__buttonItem {
+                background-color: $buttonArrow;
+            }
+        }
+    }
+
+    &__buttonText {
+        @include singleFont($roboto, 700, 2rem, 120%);
+        text-transform: capitalize;
+        color: $textColor
+    }
+    
+    &__buttonItem {
+        display: block;
+        padding: 0.4rem;
+        width: 1.9rem;
+        height: 1.9rem;
+        background-color: $textColor;
+        border-radius: 50%;
+    }
+    
+    &__buttonSvg {
+        width: 100%;
+        height: 100%;
+    }
+    
+    &__buttonIcon {
+        fill: $white;
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    &__formInner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 5rem;
+
+        @media screen and (max-width: $breakpoint60) {
+            flex-direction: column;
+        }
+    }
+
+    &__inputWrapper,
+    &__inputWrapperArea {
+        display: flex;
+        flex-direction: column;
+        gap: 2.6rem;
+    }
+
+    &__inputWrapper {
+        max-width: 50%;
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint60) {
+            max-width: unset;
+        }
+    }
+
+    &__inputWrapperArea {
+        width: 100%;
+    }
+
+    &__label {
+        @include singleFont($roboto, 600, 1.8rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__inputLine,
+    &__inputArea {
+        width: 100%;
+        padding: 2.8rem 2.6rem;
+        @include singleFont($roboto, 400, 2rem, 120%);
+        color: $textColor;
+        background-color: $white;
+        border-radius: 1.6rem;
+        border: 0.1rem solid $greenAccent;
+
+        &::placeholder {
+            @include singleFont($roboto, 400, 1.8rem, 120%);
+            font-style: italic;
+            color: $placeholders;
+            text-transform: capitalize;
+        }
+    }
+
+    &__inputArea {
+        resize: none;
+    }
+
+    &__inputSubmit {
+        cursor: pointer;
+        width: fit-content;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $white;
+        background-color: $titleColor;
+        padding: 2.8rem 4.7rem;
+        border-radius: 1.6rem;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+}

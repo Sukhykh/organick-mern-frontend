@@ -1,6 +1,6 @@
 import { Product } from "../../types/product.ts";
+import { ProductRating } from "../ProductRating/ProductRating.tsx";
 const baseUrl = import.meta.env.VITE_SERVER
-import sprite from '../../assets/images/sprite.svg'
 import styles from './ProductCard.module.scss'
 
 type ProductCardProps = {
@@ -31,17 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) =>
                         <span className={ styles.productCard__priceCurent }>&#36;{ priceCurent }</span>
                     </div>
                     <div className={ styles.productCard__rating }>
-                        {product.rating && Array.from({ length: 5 }).map((el, index) => 
-                            (<div className={ styles.productCard__star } key={Math.round(Math.random() * 10000000000)}>
-                                <svg className={ styles.productCard__starSvg }>
-                                    { <use className={ index + 1 <= product.rating ? 
-                                        `${ styles.productCard__starIcon } ${ styles.productCard__starIcon_gold }` :
-                                        `${ styles.productCard__starIcon } ${ styles.productCard__starIcon_gray }`
-                                        } xlinkHref={ `${ sprite }#star` }/>}
-                                </svg>
-                            </div>) 
-                            )
-                        }
+                        {product.rating && <ProductRating rating={product.rating}/>}
                     </div>
                 </div>
             </div>

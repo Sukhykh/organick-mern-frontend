@@ -83,23 +83,4 @@
         position: relative;
         width: fit-content;
     }
-
-    &__star {
-        display: flex;
-    }
-
-    &__starSvg {
-        width: 1.7rem; 
-        aspect-ratio: 1;
-    }
-
-    &__starIcon {
-        &_gold {
-            fill: $productCardGold;
-        }
-
-        &_gray {
-            fill: $productCardGray;
-        }
-    }
 }

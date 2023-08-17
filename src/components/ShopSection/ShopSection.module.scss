@@ -1,6 +1,7 @@
 @import '../../assets/styles/module.scss';
 
 .shopSection {
+    position: relative;
     padding-block: 17.6rem 20rem;
 
     @media screen and (max-width: $breakpoint90) {
@@ -73,5 +74,22 @@
     
     &__buttonIcon {
         fill: $white;
+    }
+
+    &__modal {
+        position: absolute;
+        inset: 5rem 0;
+        display: flex;
+        align-items: center;
+        background: rgba(244, 244, 244, 0.80);
+
+        &_none {
+            visibility: hidden;;
+        }
+    }
+
+    &__modalInner {
+        width: 100%;
+        background-color: $white;
     }
 }

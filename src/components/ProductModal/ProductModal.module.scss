@@ -1,0 +1,281 @@
+@import '../../assets/styles/module.scss';
+
+.productModal {
+    padding-block: 11.5rem 14.4rem;
+
+    @media screen and (max-width: $breakpoint90) {
+        padding-block: 5rem;
+    }
+
+    &__closeButton {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-end: -8rem;
+        display: block;
+        width: fit-content;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $white;
+        padding: 1.2rem 2.5rem;
+        background-color: $titleColor;
+        border-radius: 1.6rem;
+        z-index: 1;
+        transition: all 0.3s linear;
+
+        @media screen and (max-width: $breakpoint140) {
+            inset-inline-end: 0;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.8;
+        }
+    }
+
+    &__container {
+        position: relative;
+        @include container;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 9rem;
+
+        @media screen and (max-width: $breakpoint90) {
+            gap: 3rem;
+        }
+    }
+
+    &__productWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint110) {
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+
+    &__imgWrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 56.3rem;
+        aspect-ratio: 1;
+        background: $sectionGray 50%;
+        border-radius: 3rem;
+
+        @media screen and (max-width: $breakpoint60) {
+            height: 30rem;
+        }
+    }
+
+    &__img {
+        width: auto;
+        height: 100%;
+        mix-blend-mode: multiply;
+    }
+
+    &__tag {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        width: fit-content;
+        padding: 0.5rem 1.2rem;
+        border-radius: 0.8rem;
+        background-color: $titleColor;
+        @include singleFont($openSans, 600, 1.5rem, 120%);
+        color: $white;
+        text-transform: capitalize;
+        margin-block-start: 3rem;
+        margin-inline: 3rem;
+    }
+
+    &__title {
+        @include singleFont($roboto, 600, 4rem, 120%);
+        color: $titleColor;
+    }
+
+    &__rating {
+        display: flex;
+        margin-block: 0.9rem;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+
+    &__priceOld {
+        @include singleFont($openSans, 600, 2rem, 120%);
+        color: $productCardGray;
+        text-decoration: line-through;
+    }
+
+    &__priceCurent {
+        @include singleFont($openSans, 700, 2.5rem, 120%);
+        color: $titleColor;
+    }
+
+    &__description {
+        max-width: 65.8rem;
+        width: 100%;
+        margin-block: 2.7rem 3.5rem;
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $titleColor;
+    }
+
+    &__cart {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+
+        @media screen and (max-width: $breakpoint115) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media screen and (max-width: $breakpoint110) {
+            flex-direction: row;
+            gap: 2rem;
+        }
+
+        @media screen and (max-width: $breakpoint50) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    &__cartLable {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    &__cartTitle {
+        @include singleFont($roboto, 700, 2rem, 120%);
+        white-space: nowrap;
+        color: $titleColor;
+    }
+
+    &__cartInput {
+        width: 13.4rem;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: rgba(39, 76, 91, 0.4);
+        border-radius: 16px;
+        border: 2px solid $titleColor;
+        padding: 2.6rem 3rem;
+    }
+
+    &__cartButton {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: fit-content;
+        padding: 2.8rem 3.9rem;
+        border-radius: 1.6rem;
+        background: $titleColor;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus {
+            background: $yellowAccent;
+            & .productModal__buttonText {
+                color: $titleColor
+            }
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__buttonText {
+        @include singleFont($roboto, 700, 2rem, 120%);
+        text-transform: capitalize;
+        white-space: nowrap;
+        color: $white;
+        transition: all 0.3s linear;
+    }
+    
+    &__buttonItem {
+        display: block;
+        padding: 0.4rem;
+        width: 1.9rem;
+        height: 1.9rem;
+        background-color: $buttonArrow;
+        border-radius: 50%;
+    }
+    
+    &__buttonSvg {
+        width: 100%;
+        height: 100%;
+    }
+    
+    &__buttonIcon {
+        fill: $white;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.7rem;
+    }
+
+    &__infoButtonBar {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint80) {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+    }
+
+    &__infoButton {
+        display: block;
+        width: fit-content;
+        padding: 2.3rem 6.1rem;
+        border-radius: 1.6rem;
+        background: $titleColor;
+        @include singleFont($openSans, 700, 2.5rem, 120%);
+        text-transform: capitalize;
+        white-space: nowrap;
+        color: $white;
+        transition: all 0.3s linear;
+
+        @media screen and (max-width: $breakpoint80) {
+            padding: 1rem 2.5rem;
+        }
+
+        &_activ {
+            background: $lightGreen;
+            color: $titleColor
+        }
+
+        &:hover,
+        &:focus {
+            background: $lightGreen;
+            color: $titleColor
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__infoText {
+        max-width: 80%;
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        text-align: center;
+        color: $textColor;
+    }
+}

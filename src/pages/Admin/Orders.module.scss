@@ -1,0 +1,73 @@
+@import '../../assets/styles/module.scss';
+
+.orders {
+
+    &__container {
+        @include container;
+    }
+
+    &__wrapper {
+        padding-block: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__titleWrapper {
+        padding-block:0.5rem;
+        display: flex;
+        gap: 0.5rem;
+
+        @media screen and (max-width: $breakpoint70) {
+            flex-direction: column;
+        }
+    }
+
+    &__title {
+        @include singleFont($roboto, 600, 3rem, 120%);
+        color: $cartRed;
+
+        @media screen and (max-width: $breakpoint70) {
+            font-size: 2rem;;
+        }
+    }
+
+    &__userWrapper {
+        padding-block:0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__user {
+        @include singleFont($openSans, 400, 1.8rem, 120%);
+        color: $textColor;
+    }
+
+    &__productWrapper {
+        padding-block:0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__product {
+        @include singleFont($openSans, 700, 2rem, 120%);
+        color: $titleColor;
+    }
+
+    &__productInner {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    &__productTitle {
+        @include singleFont($roboto, 500, 2rem, 120%);
+        color: $titleColor;
+    }
+
+    &__productQuantity {
+        @include singleFont($roboto, 500, 2rem, 120%);
+        color: $titleColor;
+    }
+}

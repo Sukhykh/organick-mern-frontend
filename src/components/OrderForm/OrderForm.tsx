@@ -1,11 +1,12 @@
 import { useCallback, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { axiosBasic } from '../../../axiosConfig.ts'
 import { useCart } from '../../context/CartContext.tsx'
 import { useLocalStorage } from '../../hooks/useLocalStorage.ts'
 import sprite from '../../assets/images/sprite.svg'
 import styles from './OrderForm.module.scss'
 
-type usesrData = {
+type usersData = {
   fullName: string,
   email: string,
   address: string,
@@ -14,18 +15,25 @@ type usesrData = {
 }
 
 export const OrderForm = () => {
-  const [form, setForm] = useLocalStorage<usesrData>("userData", {
+  const [responceData, setResponceData] = useState<string>('')
+
+  const [form, setForm] = useLocalStorage<usersData>("userData", {
     fullName: '',
     email: '',
     address: '',
     phoneNumber: '',
     message: ''
   });
+
   const { cartItems, clenCart } = useCart()
+
   const products = cartItems.map(el => {
     return { productId: el.product._id, quantity: el.quantity }
   })
+
   const [isOrder, setIsOrder] = useState<boolean>(false)
+
+  const navigate = useNavigate()
 
   const handleFieldChange = useCallback((fieldName: string, value: string) => {
         setForm(prevState => ({ ...prevState, [fieldName]: value, }));
@@ -38,37 +46,36 @@ export const OrderForm = () => {
   }
   
   const handleSubmit = async (event: React.FormEvent) => {
-      event.preventDefault();
-      const orderData = {
-        products: products,
-        user: {
-          fullName: form.fullName,
-          email: form.email,
-          address: form.address,
-          phoneNumber: form.phoneNumber,
-          message: form.message,
-        }
-      };
-      try {
-        const responce = await axiosBasic.post('/orders', {
-          data: JSON.stringify(orderData),
-        });
-        console.log(responce)
-        setIsOrder(false)
-        setForm({
-          fullName: '',
-          email: '',
-          address: '',
-          phoneNumber: '',
-          message: '',
-        })
-        clenCart()
-      } catch (error) {
-        console.error(error);
+    event.preventDefault();
+    const orderData = {
+      products: products,
+      user: {
+        fullName: form.fullName,
+        email: form.email,
+        address: form.address,
+        phoneNumber: form.phoneNumber,
+        message: form.message,
       }
     };
+    try {
+      axiosBasic.post('/orders', { data: orderData })
+      .then(() => setForm({
+        fullName: '',
+        email: '',
+        address: '',
+        phoneNumber: '',
+        message: '',
+      }))
+      .then(() => clenCart())
+      .then(() => setIsOrder(false))
+      .then(() => navigate('thanks'))
+      .catch(error => setResponceData(error.response?.data[0]?.msg))
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  return (
+    return (
     <section className={ styles.orderForm }>
       <div className={ styles.orderForm__container }>
         <div className={ styles.orderForm__wrapper }>
@@ -149,6 +156,7 @@ export const OrderForm = () => {
               </span>
             </a>
           }
+          <div className={ styles.addProducts__alert }>{responceData}</div>
         </div>
       </div>
     </section>

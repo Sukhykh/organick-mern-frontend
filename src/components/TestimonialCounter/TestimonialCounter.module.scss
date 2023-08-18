@@ -1,0 +1,25 @@
+@import '../../assets/styles/module.scss';
+
+.testimonialCounter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    aspect-ratio: 1;
+    background-color: $counterBackground;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.5rem $white, 0 0 0 1rem $greenAccent;
+
+    &__title {
+        @include singleFont($roboto, 800, 5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 600, 1.8rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+    }
+}

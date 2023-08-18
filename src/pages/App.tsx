@@ -12,6 +12,7 @@ import { Cart } from './Cart/Cart.tsx';
 import { Orders } from './Admin/Orders.tsx';
 import { AdminPanel } from './Admin/AdminPanel.tsx';
 import { Error } from './Error/Error.tsx';
+import { Thanks } from './Thanks/Thanks.tsx';
 
 const router = createHashRouter([
   {
@@ -33,6 +34,7 @@ const router = createHashRouter([
       { path: 'projects', element: <Projects /> },
       { path: 'news', element: <Blog /> },
       { path: 'cart', element: <Cart /> },
+      { path: 'cart/thanks', element: <Thanks /> },
       { 
         path: 'admin', 
         element: <AdminLayout />, 

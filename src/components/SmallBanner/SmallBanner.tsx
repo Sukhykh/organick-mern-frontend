@@ -5,14 +5,16 @@ type SmallBannerProps = {
     data: {
         bannerPng: string;
         bannerWebp: string;
-        patternPng: string;
-        patternWebp: string;
-        title: string;
+        patternPng: string | undefined;
+        patternWebp: string | undefined;
+        title: string | undefined;
     }
 }
 
 export const SmallBanner: React.FC<SmallBannerProps> = ({ data }) => {
     const { bannerPng, bannerWebp, patternPng, patternWebp, title } = data
+    const isPattern: boolean = patternPng !== undefined && patternWebp !== undefined;
+
     return (
         <div className={ styles.smallBanner }>
             <div className={ styles.smallBanner__bannerWrapper }>
@@ -21,15 +23,15 @@ export const SmallBanner: React.FC<SmallBannerProps> = ({ data }) => {
                     <img className={ styles.smallBanner__banner } src={ bannerPng } alt="banner" width={1920} height={450} />
                 </picture>
             </div>
-            <div className={ styles.smallBanner__patternWrapper }>
+            {isPattern && <div className={ styles.smallBanner__patternWrapper }>
                 <picture>
                     <source srcSet={ patternWebp } type="image/webp"/>
                     <img className={ styles.smallBanner__pattern } src={ patternPng } alt="pattern" width={1920} height={450} />
                 </picture>
-            </div>
-            <div className={ styles.smallBanner__titleWrapper }>
+            </div>}
+            {title && <div className={ styles.smallBanner__titleWrapper }>
                 <SectionTitle title={title} black={true} hero={true}/>
-            </div>
+            </div>}
         </div>
     )
 }

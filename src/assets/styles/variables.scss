@@ -18,7 +18,11 @@ $lightGreen: #EFF6F1;
 $cartBackground: rgba(253, 176, 45, 0.16);
 $gray: #D4D4D4;
 $placeholders: #ababab;
-
+$errorBackground: #bbc9c9;
+$error404: #8FA8A8;
+$testimonialBackground: #fcfcfc;
+$testimonialPhotoBackground: #dfdfdf;
+$counterBackground: #f1f1f1;
 
 
 /* fonts */
@@ -41,6 +45,7 @@ $breakpoint100: 1000px;
 $breakpoint95: 950px;
 $breakpoint90: 900px;
 $breakpoint80: 800px;
+$breakpoint75: 750px;
 $breakpoint70: 700px;
 $breakpoint60: 600px;
 $breakpoint55: 550px;

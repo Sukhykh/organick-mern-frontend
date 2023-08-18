@@ -1,5 +1,5 @@
 import { Product } from "../../types/product.ts";
-import { ProductRating } from "../ProductRating/ProductRating.tsx";
+import { Rating } from "../Rating/Rating.tsx";
 const baseUrl = import.meta.env.VITE_SERVER
 import styles from './ProductCard.module.scss'
 
@@ -31,7 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) =>
                         <span className={ styles.productCard__priceCurent }>&#36;{ priceCurent }</span>
                     </div>
                     <div className={ styles.productCard__rating }>
-                        {product.rating && <ProductRating rating={product.rating}/>}
+                        {product.rating && <Rating rating={product.rating} big={false}/>}
                     </div>
                 </div>
             </div>

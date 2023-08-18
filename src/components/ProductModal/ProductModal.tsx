@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ProductRating } from '../ProductRating/ProductRating.tsx'
+import { Rating } from '../Rating/Rating.tsx'
 import { useProductStore } from '../../store/productStore.ts'
 import { useCart } from '../../context/CartContext.tsx'
 import sprite from '../../assets/images/sprite.svg'
@@ -53,7 +53,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ onClick }) => {
                             <div className={ styles.productModal__product }>
                                 <h3 className={ styles.productModal__title } >{ data?.title }</h3>
                                 <div className={ styles.productModal__rating }>
-                                {data?.rating && <ProductRating rating={data?.rating}/>}
+                                {data?.rating && <Rating rating={data?.rating} big={false}/>}
                             </div>
                             <div className={ styles.productModal__price }>
                                 {data?.discount !== 0 && <span className={ styles.productModal__priceOld }>&#36;{ data?.price.toFixed(2) }</span>}

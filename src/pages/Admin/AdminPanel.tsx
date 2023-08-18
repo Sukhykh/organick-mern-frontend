@@ -1,11 +1,24 @@
 import { useCallback, useState } from 'react'
 import { axiosBasic } from '../../../axiosConfig.ts'
-import styles from './AdminPanel.module.scss'
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle.tsx'
+import { useLocalStorage } from '../../hooks/useLocalStorage.ts'
+import styles from './AdminPanel.module.scss'
+
+type productData = {
+    title: string,
+    tag: string,
+    rating: number,
+    price: string,
+    discount: number,
+    description: string,
+    productDescription: string,
+    additionalInfo: string,
+}
 
 export const AdminPanel = () => {
-    const [responceData, setResponceData] = useState<any>({})
-    const [form, setForm] = useState({
+    const [responceData, setResponceData] = useState<string>('')
+
+    const [form, setForm] = useLocalStorage<productData>('productData', {
         title: '',
         tag: '',
         rating: 4,
@@ -23,25 +36,25 @@ export const AdminPanel = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement);
-            try {
-                const responce = await axiosBasic.post('/products', formData);
-                setResponceData(responce)
-                setForm({
-                    title: '',
-                    tag: '',
-                    rating: 4,
-                    price: '',
-                    discount: 0,
-                    description: '',
-                    productDescription: '',
-                    additionalInfo: '',
-                })
-            } catch (error) {
-                console.error('Произошла ошибка', error);
-                setResponceData(error)
-            }
+        try {
+            axiosBasic.post('/products', formData)
+            .then(response => setResponceData(response.data.message))
+            .then(() =>  setForm({
+                title: '',
+                tag: '',
+                rating: 4,
+                price: '',
+                discount: 0,
+                description: '',
+                productDescription: '',
+                additionalInfo: '',
+            }))
+            .catch(error => setResponceData(error.response?.data[0]?.msg))
+        } catch (error) {
+            console.log(error);
+        }
     };
-
+    
     return (
         <section className={ styles.addProducts }>
             <div className={ styles.addProducts__container }>
@@ -140,6 +153,7 @@ export const AdminPanel = () => {
                         </div>
                         <div className={ styles.addProducts__inputWrapper }>
                             <input className={ styles.addProducts__button } type="submit" value={'Submit'}/>
+                            <div className={ styles.addProducts__alert }>{responceData}</div>
                         </div>
                     </form>
                 </div>

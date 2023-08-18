@@ -1,0 +1,47 @@
+@import '../../assets/styles/module.scss';
+
+.testimonialCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__imgWrapper {
+        width: 11.5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: $testimonialPhotoBackground;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        mix-blend-mode: multiply;
+    }
+
+    &__ratingWrapper {
+        display: flex;
+        margin-block: 2rem 2.5rem;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        max-width: 78rem;
+        width: 100%;
+        text-align: center
+    }
+
+    &__title {
+        @include singleFont($roboto, 600, 2.5rem, 120%);
+        color: $titleColor;
+        margin-block-start: 2rem;
+        text-transform: capitalize
+    }
+
+    &__role {
+        @include singleFont($openSans, 400, 1.5rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+    }
+}

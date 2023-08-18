@@ -70,4 +70,10 @@
         @include singleFont($roboto, 500, 2rem, 120%);
         color: $titleColor;
     }
+
+    &__noOrdersTitle {
+        @include singleFont($roboto, 700, 7rem, 120%);
+        color: $titleColor;
+        text-align: center;
+    }
 }

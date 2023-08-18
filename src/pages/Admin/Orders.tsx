@@ -24,6 +24,7 @@ export const Orders = () => {
         <section className={ styles.orders }>
             <div className={ styles.orders__container }>
                 <div className={ styles.orders__wrapper }>
+                    {!orders.length && <h2 className={ styles.orders__noOrdersTitle }>No orders yet!</h2>}
                     {orders && orders.map(order => (
                         <div className={ styles.orders__item } key={order._id}>
                             <div className={ styles.orders__titleWrapper }>

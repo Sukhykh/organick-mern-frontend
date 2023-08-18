@@ -65,4 +65,10 @@
         border-radius: 1rem;
         cursor: pointer;
     }
+
+    &__alert {
+        padding: 1rem 0;
+        @include singleFont($roboto, 400, 2rem, 120%);
+        color: $cartRed;
+    }
 }

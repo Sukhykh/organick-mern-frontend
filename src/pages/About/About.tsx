@@ -2,10 +2,7 @@
 import { useProductStore } from "../../store/productStore.ts"
 import { useCartStore } from "../../store/cartStore.ts"
 
-
 const baseUrl = import.meta.env.VITE_SERVER
-
-
 
 export const About = () => {
 

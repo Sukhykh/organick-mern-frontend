@@ -1,0 +1,82 @@
+@import '../../assets/styles/module.scss';
+
+.error {
+    position: relative;
+    background-color: $errorBackground;
+    margin-block-end: 13rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        margin-block-end: 5rem;
+    }
+
+    &__background {
+        position: relative;
+        
+        @media screen and (max-width: $breakpoint110) {
+            display: none;
+        }
+    }
+
+    &__imgWrapper {
+        width: 100%;
+    }
+
+    &__backgroundImg {
+        width: 100%;
+        height: auto;
+    }
+
+    &__patternWrapper {
+        position: absolute;
+        inset: 0;
+    }
+
+    &__backgroundImg {
+        width: 100%;
+        height: auto;
+    }
+
+    &__container {
+        position: absolute;
+        inset: 0;
+        @include container;
+
+        @media screen and (max-width: $breakpoint110) {
+            position: relative;
+            z-index: 1;
+            padding-block: 3rem;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+
+        @media screen and (max-width: $breakpoint110) {
+            justify-content: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text404 {
+        @include singleFont($roboto, 600, 33rem, 80%);
+        color: $error404;
+
+        @media screen and (max-width: $breakpoint55) {
+            font-size: 20rem;
+            
+        }
+    }
+
+    &__descr {
+        @include singleFont($openSans, 600, 1.8rem, 165%);
+        color: $textColor;
+        margin-block-end: 3rem;
+    }
+}

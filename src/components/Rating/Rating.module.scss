@@ -3,9 +3,19 @@
 .stars {
     display: flex;
 
-    &__svg {
+    &_big {
+        & .stars__inner {
+            width: 2.7rem; 
+        }
+    }
+
+    &__inner {
         width: 1.7rem; 
         aspect-ratio: 1;
+    }
+    &__svg {
+        width: 100%;
+        height: 100%;
     }
     
     &__icon {

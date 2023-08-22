@@ -1,0 +1,136 @@
+@import '../../assets/styles/module.scss';
+
+.newsCard {
+    position: relative;
+    max-width: 48%;
+    width: 100%;
+
+    @media screen and (max-width: $breakpoint110) {
+        padding-block-start: 20rem;
+    }
+
+    @media screen and (max-width: $breakpoint70) {
+        max-width: 100%;
+    }
+    
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        padding-block-end: 5.4rem;
+    }
+
+    &__background {
+        border-radius: 3rem;
+        overflow: hidden;
+
+        @media screen and (max-width: $breakpoint110) {
+            position: absolute;
+            height: fit-content;
+            inset: 0;
+            z-index: -1;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__date {
+        position: absolute;
+        inset: 4.3rem 3.2rem;
+        width: 8.2rem;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $white;
+        border-radius: 50%;
+    }
+
+    &__dateDay {
+        @include singleFont($roboto, 800, 2.5rem, 120%);
+        color: $titleColor;
+    }
+
+    &__dateMonth {
+        @include singleFont($roboto, 800, 2rem, 120%);
+        color: $titleColor;
+    }
+
+    &__content {
+        width: 90%;
+        position: absolute;
+        inset-block-end: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.9rem;
+        background-color: $white;
+        border-radius: 3rem;
+        padding: 5.4rem;
+        box-shadow: 0 2rem 3.5rem 0 rgba(167, 167, 167, 0.25);
+
+        @media screen and (max-width: $breakpoint160) {
+            padding: 3rem;
+        }
+
+        @media screen and (max-width: $breakpoint110) {
+            position: static;
+        }
+    }
+
+    &__user {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+    }
+
+    &__userItem {
+        width: 2rem;
+        aspect-ratio: 1;
+
+        &_yellow {
+            & .newsCard__userIcon {
+                fill: $yellowAccent;
+            }
+            
+        }
+        &_green {
+            & .newsCard__userIcon {
+                fill: $greenAccent;
+            }
+        }
+    }
+
+    &__userSvg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__userTitle {
+        @include singleFont($roboto, 400, 1.8rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+    }
+
+    &__title {
+        @include singleFont($roboto, 800, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+    }
+}

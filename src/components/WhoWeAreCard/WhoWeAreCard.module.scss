@@ -1,0 +1,20 @@
+@import '../../assets/styles/module.scss';
+
+.whoWeAreCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    &__title {
+        @include singleFont($roboto, 500, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $titleColor;
+        max-width: 63rem;
+        width: 100%;
+    }
+}

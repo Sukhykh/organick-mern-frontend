@@ -1,0 +1,18 @@
+@import '../../assets/styles/module.scss';
+
+.gallery {
+    background-color: $galleryBackground;
+    
+    &__wrapper {
+        padding-block: 18.7rem;
+        display: flex;
+        gap: 4.2rem;
+        justify-content: space-between;
+
+        @media screen and (max-width: $breakpoint80) {
+            flex-direction: column;
+            align-items: center;
+            padding-block: 3rem;
+        }
+    }
+}

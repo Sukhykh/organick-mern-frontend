@@ -13,9 +13,7 @@ type TestimonialCardProps = {
 }
 
 export const TestimonialCard: React.FC<TestimonialCardProps> = ({ data }) => {
-    
     return (
-        
         <div className={ styles.testimonialCard }>
             <div className={ styles.testimonialCard__imgWrapper }>
                 <img className={ styles.testimonialCard__img } src={ data.picture } alt="photo" width={ 115 } height={ 115 }/>

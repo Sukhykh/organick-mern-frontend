@@ -156,7 +156,7 @@ export const OrderForm = () => {
               </span>
             </a>
           }
-          <div className={ styles.addProducts__alert }>{responceData}</div>
+          <div className={ styles.orderForm__alert }>{responceData}</div>
         </div>
       </div>
     </section>

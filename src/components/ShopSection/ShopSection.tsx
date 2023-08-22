@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useProductStore } from "../../store/productStore.ts"
 import { SectionTitle } from '../SectionTitle/SectionTitle.tsx'
 import { Subtitle } from '../Subtitle/Subtitle.tsx'
 import { ProductCard } from '../ProductCard/ProductCard.tsx';
 import { ProductModal } from '../ProductModal/ProductModal.tsx';
 import { Product } from '../../types/product.ts';
+import { useCart } from '../../context/CartContext.tsx';
 import sprite from '../../assets/images/sprite.svg'
 import styles from './ShopSection.module.scss'
 
+
 export const ShopSection = () => {
-    const [modalIsOpened, setModalIsOpened] = useState<boolean>(false)
+    const { setOpenModal, setCloseModal, modalIsOpened } = useCart()
     const productsToShow = useProductStore(state => state.productsToShow)
     const slicer = useProductStore(state => state.slicer)
     const setCurentProduct = useProductStore(state => state.setCurentProduct)
@@ -40,7 +42,7 @@ export const ShopSection = () => {
 
     const openModal = (el: Product) => {
         setCurentProduct(el._id)
-        setModalIsOpened(true)
+        setOpenModal()
         const modal = document.getElementById("modalInner");
         if (modal) {
             modal.scrollIntoView({ behavior: "smooth", block: 'center' });
@@ -49,7 +51,7 @@ export const ShopSection = () => {
 
     const closeModal = () => {
         setCurentProduct('')
-        setModalIsOpened(false)
+        setCloseModal()
     }
 
     const handleCloser = (e: any) => {

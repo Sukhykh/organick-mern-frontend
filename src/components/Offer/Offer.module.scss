@@ -1,0 +1,32 @@
+@import '../../assets/styles/module.scss';
+
+.offer {
+    background-color: $titleColor;
+
+    &__container {
+        @include container
+    }
+
+    &__wrapper {
+        padding-block: 20rem;
+
+        @media screen and (max-width: $breakpoint80) {
+            padding-block: 5rem;
+        }
+    }
+
+    &__titleWrapper {
+        margin-block: 0.8rem 5rem;
+
+        @media screen and (max-width: $breakpoint80) {
+            margin-block-end: 3rem;
+        }
+    }
+
+    &__cadrWrapper {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+}

@@ -14,6 +14,7 @@ type CartProviderProps = {
 
 interface State {
     isOpenBurger: boolean;
+    modalIsOpened: boolean;
     cartItems: Array<CartProduct>
     cartQuantity: number
     cartTotal: number
@@ -24,6 +25,8 @@ interface Action {
     clenCart: () => void
     setOpenBurger: () => void;
     setCloseBurger: () => void;
+    setOpenModal: () => void;
+    setCloseModal: () => void;
     getCartItemQuantity: (id: string) => number;
     setRundomQuantity: (id: string, value: number) => void
 	increaseCartItemsQuantity: (id: string) => void;
@@ -44,6 +47,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const cartQuantity = getTotalQuantity(cartItems) || 0;
     const cartTotal = getTotalPrice(cartItems) || 0;
     const cartDiscount = getTotalDiscount(cartItems) || 0;
+    const [modalIsOpened, setModalIsOpened] = useState(false)
 
     const setOpenBurger = () => {
         document.body.style.overflow = 'hidden'
@@ -53,6 +57,14 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     const setCloseBurger = () => {
         document.body.style.overflow = ''
         setIsOpenBurger(false)
+    }
+
+    const setOpenModal = () => {
+        setModalIsOpened(true)
+    }
+
+    const setCloseModal = () => {
+        setModalIsOpened(false)
     }
 
     const getCartItemQuantity = (id: string) => {
@@ -136,8 +148,11 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 				cartQuantity,
                 cartTotal,
                 cartDiscount,
+                modalIsOpened,
                 setOpenBurger,
                 setCloseBurger,
+                setOpenModal,
+                setCloseModal,
                 setRundomQuantity,
                 getCartItemQuantity,
 				increaseCartItemsQuantity,

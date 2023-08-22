@@ -1,0 +1,55 @@
+@import '../../assets/styles/module.scss';
+
+.galleryCard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 32%;
+    width: 100%;
+    transition: all 0.3s linear;
+
+    &:hover {
+        box-shadow: 0 0 0.5rem 0.5rem $placeholders;
+    }
+
+    @media screen and (max-width: $breakpoint80) {
+        max-width: 80%;
+    }
+
+    &__wrapper {
+        width: 100%;
+    }
+    
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+
+    &__text {
+        position: absolute;
+        width: fit-content;
+        background-color: $white;
+        padding: 3.3rem 8.3rem;
+        border-radius: 2rem;
+
+        @media screen and (max-width: $breakpoint110) {
+            padding: 2rem;
+        }
+
+        @media screen and (max-width: $breakpoint80) {
+            padding: 3.3rem 8.3rem;
+        }
+
+        @media screen and (max-width: $breakpoint45) {
+            padding: 2rem;
+        }
+    }
+
+    &__title {
+        @include singleFont($roboto, 500, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}

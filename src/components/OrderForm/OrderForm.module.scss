@@ -152,4 +152,9 @@
             opacity: 0.7;
         }
     }
+
+    &__alert {
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $cartRed;
+    }
 }

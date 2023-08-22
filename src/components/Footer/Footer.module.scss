@@ -1,0 +1,178 @@
+@import '../../assets/styles/module.scss';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        gap: 5rem;
+    }
+
+    &__container {
+        @include container;
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+
+        @media screen and (max-width: $breakpoint95) {
+            padding-block-start: 35rem;
+        }
+
+        @media screen and (max-width: $breakpoint50) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__contactUs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 3.2rem;
+
+        @media screen and (max-width: $breakpoint50) {
+            align-items: center;
+        }
+    }
+
+    &__title {
+        @include singleFont($roboto, 700, 3rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+
+    &__contactUsList {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint50) {
+            align-items: center;
+        }
+    }
+
+    &__contactUsLink {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__contactUsTitle {
+        @include singleFont($openSans, 700, 1.8rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+        text-align: end;
+
+        @media screen and (max-width: $breakpoint50) {
+            text-align: center;
+        }
+    }
+
+    &__contactUsText {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-align: end;
+        white-space: nowrap;
+
+        @media screen and (max-width: $breakpoint50) {
+            text-align: center;
+        }
+    }
+
+    &__utility {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+    }
+
+    &__utilityList {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__utilityItem {
+        @media screen and (max-width: $breakpoint50) {
+            text-align: center;
+        }
+    }
+
+    &__utilityLink {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+        white-space: nowrap;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__mainInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        padding-inline: 4rem;
+        border-left: 0.1rem solid $gray;
+        border-right: 0.1rem solid $gray;
+
+        @media screen and (max-width: $breakpoint95) {
+            padding-inline: unset;
+            position: absolute;
+            inset-block-start: 0;
+            border: unset;
+        }
+    }
+
+    &__mainInfoText {
+        max-width: 54rem;
+        width: 100%;
+        margin-block: 2.3rem 4.9rem;
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-align: center;
+    }
+
+    &__followBar {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &__copyright {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-block: 2rem;
+        border-top: 0.1rem solid $gray;
+    }
+
+    &__copyrightText {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+    }
+
+    &__copyrightTitle {
+        @include singleFont($openSans, 700, 1.8rem, 165%);
+        color: $textColor;
+        text-transform: capitalize;
+    }
+}

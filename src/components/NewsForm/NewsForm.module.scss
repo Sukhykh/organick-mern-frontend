@@ -1,0 +1,106 @@
+@import '../../assets/styles/module.scss';
+
+.newsForm {
+    padding-block-end: 12rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        padding-block-end: 5rem;
+    }
+
+    &__container {
+        @include container
+    }
+
+    &__wrapper {
+        position: relative;    
+        padding: 10.5rem 7.1rem;
+        border-radius: 3rem;
+        background-image: url('../../assets//images//Form/newsForm.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        @media screen and (max-width: $breakpoint50) {
+            padding: 3rem;
+        }
+    }
+
+    &__form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        @media screen and (max-width: $breakpoint110) {
+            flex-direction: column;
+            padding-block-end: 3rem;
+        }
+    }
+
+    &__titleWrapper {
+        max-width: 35.3rem;
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint110) {
+            max-width: unset;
+            text-align: center;
+        }
+    }
+
+    &__subscribe {
+        position: relative;
+        display: flex;
+        gap: 0.6rem;
+
+        @media screen and (max-width: $breakpoint75) {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+    }
+
+    &__inputLine {
+        width: 35rem;
+        padding: 2.8rem 2.3rem;
+        background-color: $white;
+        border-radius: 1.6rem;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $textColor;
+
+        &::placeholder {
+            @include singleFont($roboto, 400, 1.8rem, 120%);
+            font-style: italic;
+            color: $placeholders;
+        }
+
+        @media screen and (max-width: $breakpoint75) {
+            width: 100%;
+        }
+    }
+
+    &__inputSubmit {
+        cursor: pointer;
+        width: fit-content;
+        padding: 2.8rem 4.7rem;
+        background-color: $titleColor;
+        border-radius: 1.6rem;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $white;
+        transition: all 0.3s linear;
+
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__alert {
+        position: absolute;
+        inset-block-end: -5rem;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $cartRed;
+        text-align: center;
+    }
+}

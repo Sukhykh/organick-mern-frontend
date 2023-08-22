@@ -1,0 +1,60 @@
+@import '../../assets/styles/module.scss';
+
+.whoWeAre {
+    position: relative;
+
+    &__container {
+        @include container;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        padding-block: 10rem;
+
+        @media screen and (max-width: $breakpoint100) {
+            justify-content: center;
+            padding-block: 20rem 3rem;
+        }
+    }
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+
+    &__backgroundImg {
+        height: 100%;
+        width: auto;
+
+        @media screen and (max-width: $breakpoint100) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__contant {
+        display: flex;
+        flex-direction: column;
+        padding: 7.8rem 8.9rem;
+        background-color: $white;
+        border-radius: 3rem;
+
+        @media screen and (max-width: $breakpoint80) {
+            padding: 3rem;
+        }
+    }
+
+    &__titleWrapper {
+        margin-block: 0.8rem 3.5rem;
+        max-width: 50rem;
+        width: 100%;
+    }
+
+    &__cardWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
+}

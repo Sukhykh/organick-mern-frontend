@@ -37,58 +37,53 @@
         width: 100%;
     }
 
-    &__button {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        width: fit-content;
-        height: fit-content;
-        padding: 2.8rem 4.5rem;
-        border: 0.2rem solid $titleColor;
-        border-radius: 1.6rem;
-        transition: all 0.3s linear;
+    // &__button {
+    //     display: flex;
+    //     align-items: center;
+    //     gap: 1rem;
+    //     width: fit-content;
+    //     height: fit-content;
+    //     padding: 2.8rem 4.5rem;
+    //     border: 0.2rem solid $titleColor;
+    //     border-radius: 1.6rem;
+    //     transition: all 0.3s linear;
     
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: $yellowAccent;
-        }
-    }
+    //     &:hover,
+    //     &:focus,
+    //     &:active {
+    //         background-color: $yellowAccent;
+    //     }
+    // }
 
-    &__buttonText {
-        @include singleFont($roboto, 700, 2rem, 120%);
-        color: $titleColor;
-        text-transform: capitalize;
-    }
+    // &__buttonText {
+    //     @include singleFont($roboto, 700, 2rem, 120%);
+    //     color: $titleColor;
+    //     text-transform: capitalize;
+    //     white-space: nowrap;
+    // }
     
-    &__buttonItem {
-        display: block;
-        padding: 0.4rem;
-        width: 1.9rem;
-        height: 1.9rem;
-        background-color: $buttonArrow;
-        border-radius: 50%;
-    }
+    // &__buttonItem {
+    //     display: block;
+    //     padding: 0.4rem;
+    //     width: 1.9rem;
+    //     height: 1.9rem;
+    //     background-color: $buttonArrow;
+    //     border-radius: 50%;
+    // }
     
-    &__buttonSvg {
-        width: 100%;
-        height: 100%;
-    }
+    // &__buttonSvg {
+    //     width: 100%;
+    //     height: 100%;
+    // }
     
-    &__buttonIcon {
-        fill: $white;
-    }
+    // &__buttonIcon {
+    //     fill: $white;
+    // }
 
     &__cardWrapper {
         display: flex;
-        justify-content: space-between;
-
-        @media screen and (max-width: $breakpoint70) {
-            flex-wrap: wrap;
-        }
-    }
-
-    &__formWrapper {
-        margin-block-start: 17.2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4rem;
     }
 }

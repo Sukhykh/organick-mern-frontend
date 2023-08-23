@@ -1,0 +1,28 @@
+@import '../../assets/styles/module.scss';
+
+.qualityRating {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    background-color: $sectionGray;
+    border-radius: 10rem;
+    padding: 1.5rem 5.3rem 1.5rem 1.7rem;
+
+    &__number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 6.9rem;
+        width: 6.9rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: $greenAccent;
+        @include singleFont($roboto, 700, 2.5rem, 120%);
+        color: $white;
+    }
+
+    &__title {
+        @include singleFont($roboto, 600, 2.5rem, 120%);
+        color: $titleColor;
+    }
+}

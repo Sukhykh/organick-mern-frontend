@@ -1,0 +1,75 @@
+@import '../../assets/styles/module.scss';
+
+.qualityCard {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    @media screen and (max-width: $breakpoint70) {
+        flex-direction: column;
+        align-items: center;
+        gap: unset;
+    }
+
+    &_reverse {
+        flex-direction: row-reverse;
+
+        @media screen and (max-width: $breakpoint70) {
+            flex-direction: column;
+            align-items: center;
+            gap: unset;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        background-color: $sectionGray;
+        border-radius: 2rem;
+        padding: 6.3rem 4.5rem;
+
+        @media screen and (max-width: $breakpoint70) {
+            max-width: 38rem;
+            width: 100%;
+            border-top-right-radius: unset;
+            border-top-left-radius: unset
+        }
+    }
+
+    &__title {
+        @include singleFont($roboto, 500, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        max-width: 44.7rem;
+        width: 100%;
+    }
+
+    &__imgWrapper {
+        max-width: 38rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: $breakpoint70) {
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    &__img {
+        border-radius: 2rem;
+        height: auto;
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint70) {
+            border-bottom-right-radius: unset;
+            border-bottom-left-radius: unset
+        }
+    }
+}

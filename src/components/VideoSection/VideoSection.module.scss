@@ -1,0 +1,97 @@
+@import '../../assets/styles/module.scss';
+
+.vodeoSection {
+    position: relative;
+    margin-block-end: 14rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        margin-block-end: 5rem;
+    }
+
+    &__imgWrapper {
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint90) {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+
+        @media screen and (max-width: $breakpoint90) {
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+
+    &__container {
+        position: absolute;
+        inset: 0;
+        @include container;
+
+        @media screen and (max-width: $breakpoint90) {
+            position: static;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block-start: 18rem;
+
+        @media screen and (max-width: $breakpoint130) {
+            margin-block-start: 5rem;
+        }
+
+        @media screen and (max-width: $breakpoint90) {
+            margin: unset;
+            padding-block: 8rem;
+        }
+    }
+
+    &__titleWrapper {
+        text-align: center;
+        margin-block: 0.7rem 2.4rem;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        max-width: 67rem;
+        width: 100%;
+        text-align: center;
+        margin-block-end: 5rem;
+    }
+
+    &__button {
+        display: flex;
+        width: 10.7rem;
+        height: 10.7rem;
+        border-radius: 50%;
+        background-color: $greenAccent;
+        padding: 3rem 3rem 3rem 3.5rem;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: -0.2rem 0.5rem 0.5rem 0.5rem $yellowAccent;
+            opacity: 0.7;
+        }
+    }
+
+    &__svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__icon {
+        fill: $white;
+    }
+}

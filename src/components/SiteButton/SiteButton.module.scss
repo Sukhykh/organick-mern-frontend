@@ -10,6 +10,7 @@
     transition: all 0.3s linear;
 
     &_yellow {
+        border: 0.2rem solid $yellowAccent;
         background: $yellowAccent;
         & .button__buttonText {
             color: $titleColor
@@ -17,10 +18,26 @@
     }
 
     &_blue {
+        border: 0.2rem solid $titleColor;
         background: $titleColor;
         & .button__buttonText {
             color: $white
         };
+    }
+
+    &_white {
+        border: 0.2rem solid $titleColor;
+        background: $white;
+
+        & .button__buttonText {
+            color: $titleColor;
+        };
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $yellowAccent;
+        }
     }
 
     &:hover,
@@ -32,6 +49,7 @@
     &__buttonText {
         @include singleFont($roboto, 700, 2rem, 120%);
         text-transform: capitalize;
+        white-space: nowrap;
     }
     
     &__buttonItem {

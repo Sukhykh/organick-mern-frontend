@@ -1,0 +1,16 @@
+@import '../../assets/styles/module.scss';
+
+.blog {
+    &__container {
+        @include container
+    }
+
+    &__wrapper {
+        padding-block: 12rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+}
+

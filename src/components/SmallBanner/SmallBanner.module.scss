@@ -6,13 +6,36 @@
     justify-content: center;
     align-items: center;
 
+    &_noPattern {
+        @media screen and (max-width: $breakpoint60) {
+            height: 12.4rem;
+        }
+    }
+
     &__bannerWrapper {
         width: 100%;
+
+        @media screen and (max-width: $breakpoint60) {
+            position: absolute;
+            inset: 0;
+        }
     }
 
     &__banner {
         width: 100%;
         height: auto;
+
+        @media screen and (max-width: $breakpoint60) {
+            height: 100%;
+            object-fit: cover;
+            object-position: left;
+        }
+
+        &_noPattern {
+            @media screen and (max-width: $breakpoint60) {
+                object-position: center;
+            }
+        }
     }
 
     &__patternWrapper {
@@ -23,9 +46,20 @@
     &__pattern {
         width: 100%;
         height: auto;
+
+        @media screen and (max-width: $breakpoint60) {
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &__titleWrapper {
+        text-align: center;
         position: absolute;
+
+        @media screen and (max-width: $breakpoint60) {
+            position: relative;
+            padding-block: 2rem;
+        }
     }
 }

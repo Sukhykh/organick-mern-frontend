@@ -15,38 +15,38 @@ import { Error } from './Error/Error.tsx';
 import { Thanks } from './Thanks/Thanks.tsx';
 
 const router = createHashRouter([
-  {
-    path: '/',
-    element: <RootLayout />,
-    errorElement: <Error />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: 'about', element: <About /> },
-      { 
-        path: 'pages', 
-        element: <PagesLayout />, 
-        children: [
-          { path: 'service', element: <Service /> },
-          { path: 'quality', element: <Quality /> },
-        ]
-      },
-      { path: 'shop', element: <Shop /> },
-      { path: 'projects', element: <Projects /> },
-      { path: 'news', element: <Blog /> },
-      { path: 'cart', element: <Cart /> },
-      { path: 'cart/thanks', element: <Thanks /> },
-      { 
-        path: 'admin', 
-        element: <AdminLayout />, 
-        children: [
-          { path: 'orders', element: <Orders /> },
-          { path: 'addProduct', element: <AdminPanel /> },
-        ]
-      },
-    ],
-  }
+	{
+		path: '/',
+		element: <RootLayout />,
+		errorElement: <Error />,
+		children: [
+			{ index: true, element: <Home /> },
+			{ path: 'about', element: <About /> },
+			{
+				path: 'pages',
+				element: <PagesLayout />,
+				children: [
+					{ path: 'service', element: <Service /> },
+					{ path: 'quality', element: <Quality /> },
+				],
+			},
+			{ path: 'shop', element: <Shop /> },
+			{ path: 'projects', element: <Projects /> },
+			{ path: 'news', element: <Blog /> },
+			{ path: 'cart', element: <Cart /> },
+			{ path: 'cart/thanks', element: <Thanks /> },
+			{
+				path: 'admin',
+				element: <AdminLayout />,
+				children: [
+					{ path: 'orders', element: <Orders /> },
+					{ path: 'addProduct', element: <AdminPanel /> },
+				],
+			},
+		],
+	},
 ]);
 
 export const App = () => {
-  return <RouterProvider router={router} />;
-}
+	return <RouterProvider router={router} />;
+};

@@ -1,0 +1,75 @@
+@import '../../assets/styles/module.scss';
+
+.whatWeGrowCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &_start {
+        align-items: flex-start;
+        & .whatWeGrowCard__imgWrapper {
+            padding-inline-start: 0.5rem
+        }
+
+        & .whatWeGrowCard__imgWrapper::after {
+            inset-inline-start: 0;
+        }
+
+        & .whatWeGrowCard__text {
+            text-align: start;
+        }
+    }
+
+    &_end {
+        align-items: flex-end;
+        & .whatWeGrowCard__imgWrapper {
+            padding-inline-end: 0.5rem
+        }
+
+        & .whatWeGrowCard__imgWrapper::after {
+            inset-inline-end: 0;
+        }
+
+        & .whatWeGrowCard__text {
+            text-align: end;
+        }
+    }
+
+
+    &__imgWrapper {
+        position: relative;
+        padding-block-end: 0.5rem;
+        width: 5rem;
+        aspect-ratio: 1;
+
+        &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 2.5rem;
+            aspect-ratio: 1;
+            background-color: $acoutUsCard;
+            inset-block-end: 0;
+            border-radius: 50%;;
+            z-index: -1;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+
+    &__title {
+        @include singleFont($roboto, 500, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        max-width: 39.6rem;
+        width: 100%;
+    }
+}

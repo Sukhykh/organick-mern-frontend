@@ -1,0 +1,81 @@
+@import '../../assets/styles/module.scss';
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__picture {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__imgWrapper {
+        max-width: 45rem;
+        width: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        border-radius: 3rem;
+    }
+
+    &__imgOwerlay {
+        position: absolute;
+        inset: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3rem;
+        background-color: rgba(255, 255, 255, 0.91);
+    }
+
+    &__button {
+        display: flex;
+        width: 5rem;
+        aspect-ratio: 1;
+        padding: 1rem;
+        border-radius: 50%;
+        background-color: $greenAccent;
+        transform: rotateZ(-90deg);
+        transition: opacity 0.3s linear;
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &__svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__icon {
+        fill: none;
+        stroke: $white;
+    }
+
+    &__titleBar {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    &__title {
+        @include singleFont($roboto, 800, 2.5rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__subtitle {
+        @include singleFont($yellowtail, 400, 2.2rem, 120%);
+        color: $subtitleGreen;
+        text-transform: capitalize;
+    }
+}

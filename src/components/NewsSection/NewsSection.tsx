@@ -1,11 +1,9 @@
-import { NavLink } from 'react-router-dom';
 import { SectionTitle } from '../SectionTitle/SectionTitle.tsx';
 import { Subtitle } from '../Subtitle/Subtitle';
 import { NewsCard } from '../NewsCard/NewsCard.tsx';
 import { newsCardData } from '../../data/newsCardData.ts';
-import sprite from '../../assets/images/sprite.svg';
-import styles from './NewsSection.module.scss';
 import { SiteButton } from '../SiteButton/SiteButton.tsx';
+import styles from './NewsSection.module.scss';
 
 export const NewsSection = () => {
 	const cardToShow = newsCardData.slice(0, 2);

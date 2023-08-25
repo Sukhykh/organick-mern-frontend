@@ -7,7 +7,7 @@ type RatingProps = {
 };
 
 export const Rating: React.FC<RatingProps> = ({ rating, big }) => {
-	return Array.from({ length: 5 }).map((el, index) => (
+	return Array.from({ length: 5 }).map((__, index) => (
 		<div
 			className={
 				big ? `${styles.stars} ${styles.stars_big}` : styles.stars

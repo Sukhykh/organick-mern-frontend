@@ -32,17 +32,17 @@
         align-items: center;
         height: 33.5rem;
         aspect-ratio: 1;
-
+        background: $sectionGray;
         @media screen and (max-width: $breakpoint45) {
             height: 28rem;
         }
     }
 
     &__img {
-        width: auto;
+        width: 100%;
         height: 100%;
-        background: $sectionGray;
         mix-blend-mode: multiply;
+        object-fit: contain;
     }
 
     &__title {

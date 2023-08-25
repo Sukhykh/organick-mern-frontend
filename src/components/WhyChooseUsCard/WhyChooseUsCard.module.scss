@@ -1,0 +1,40 @@
+@import '../../assets/styles/module.scss';
+
+.whyChooseUsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 48.6rem;
+    width: 100%;
+
+    &__titleBar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 34rem;
+        width: 100%;
+        padding: 2.9rem 2.7rem;
+        border-radius: 3rem;
+        background-color: $whyChooseUsCard;
+    }
+
+    &__decor {
+        width: 2rem;
+        height: 2rem;
+        border: 0.4rem solid $greenAccent;
+        border-radius: 50%;
+    }
+
+    &__title {
+        @include singleFont($roboto, 500, 2rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        padding-inline-start: 6rem;
+    }
+}
+

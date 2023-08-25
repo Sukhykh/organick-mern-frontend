@@ -2,18 +2,8 @@ import { useCallback, useState } from 'react';
 import { axiosBasic } from '../../../axiosConfig.ts';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle.tsx';
 import { useLocalStorage } from '../../hooks/useLocalStorage.ts';
+import { productData } from '../../types/product.ts';
 import styles from './AdminPanel.module.scss';
-
-type productData = {
-	title: string;
-	tag: string;
-	rating: number;
-	price: string;
-	discount: number;
-	description: string;
-	productDescription: string;
-	additionalInfo: string;
-};
 
 export const AdminPanel = () => {
 	const [responceData, setResponceData] = useState<string>('');
@@ -21,7 +11,7 @@ export const AdminPanel = () => {
 		title: '',
 		tag: '',
 		rating: 4,
-		price: '',
+		price: 0,
 		discount: 0,
 		description: '',
 		productDescription: '',
@@ -47,7 +37,7 @@ export const AdminPanel = () => {
 						title: '',
 						tag: '',
 						rating: 4,
-						price: '',
+						price: 0,
 						discount: 0,
 						description: '',
 						productDescription: '',

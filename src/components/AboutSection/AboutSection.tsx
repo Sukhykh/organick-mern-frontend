@@ -33,11 +33,11 @@ export const AboutSection = () => {
 						</picture>
 					</div>
 					<div className={styles.aboutSection__contant}>
-						<Subtitle title='About us' green={true} />
+						<Subtitle title='About us' green />
 						<div className={styles.aboutSection__titleWrapper}>
 							<SectionTitle
 								title='We Believe in Working Accredited Farmers'
-								black={true}
+								black
 								hero={false}
 							/>
 						</div>
@@ -52,11 +52,7 @@ export const AboutSection = () => {
 								<AboutSectionCard data={el} key={el.id} />
 							))}
 						</div>
-						<SiteButton
-							title='shop now'
-							color='blue'
-							path='shop'
-						/>
+						<SiteButton title='shop now' color='blue' path='shop' />
 					</div>
 				</div>
 			</div>

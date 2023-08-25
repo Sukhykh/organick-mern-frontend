@@ -1,0 +1,36 @@
+@import '../../assets/styles/module.scss';
+
+.offerCard {
+    background-color: $titleColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+
+    &__imgWrapper {
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 33.4rem;
+        height: 31.4rem;
+        border-radius: 3rem;
+
+        @media screen and (max-width: $breakpoint40) {
+            width: 30rem;
+        }
+    }
+
+    &__img {
+        border-radius: 3rem;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__title {
+        @include singleFont($roboto, 500, 2.5rem, 120%);
+        color: $white;
+        text-transform: capitalize;
+    }
+}

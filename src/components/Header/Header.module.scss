@@ -50,4 +50,34 @@
             gap: 1rem;
         }
     }
+
+    &__top {
+        position: fixed;
+        bottom: 5rem;
+        right: 5rem;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        border: 0.1rem solid $greenAccent;
+        background-color: $greenAccent;
+        @include singleFont($roboto, 700, 2rem, 120%);
+        color: $white;
+        text-transform: uppercase;
+        transition: all 0.3s linear;
+
+        &:hover,
+        &:focus {
+            border-color: $titleColor;
+            background-color: $yellowAccent;
+            box-shadow: 0 0 0.5rem 0.5rem $white;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+    }
 }

@@ -1,0 +1,130 @@
+@import '../../assets/styles/module.scss';
+
+.products {
+    background-color: $sectionGray;
+
+    &__container {
+        @include container;
+    }
+
+    &__wrapper {
+        padding-block: 5rem;
+        margin-block-end: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__cardWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    &__item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 2rem 5rem;
+        border: 0.1rem solid $titleColor;
+        border-radius: 1rem;
+        background-color: $error404;
+    }
+
+    &__itemTitle {
+        @include singleFont($openSans, 700, 3rem, 120%);
+        color: $textColor;
+        text-transform: capitalize;
+    }
+
+    &__itemBtnBar {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__itemEdit {
+        padding: 1rem 2rem;
+        border: 0.1rem solid $titleColor;
+        background-color: $greenAccent;
+        border-radius: 1rem;
+        @include singleFont($roboto, 400, 2rem, 120%);
+        color: $titleColor;
+        text-transform: uppercase;
+    }
+
+    &__itemDelete {
+        padding: 1rem 2rem;
+        border: 0.1rem solid $titleColor;
+        background-color: $yellowAccent;
+        border-radius: 1rem;
+        @include singleFont($roboto, 400, 2rem, 120%);
+        color: $titleColor;
+        text-transform: uppercase;
+    }
+
+    &__formWrapper {
+        padding-block-start: 5rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    &__inputWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__label {
+        @include singleFont($roboto, 600, 1.8rem, 120%);
+        color: $titleColor;
+        text-transform: capitalize;
+    }
+
+    &__inputLine {
+        @include singleFont($openSans, 400, 1.8rem, 120%);
+        color: $textColor;
+        width: 100%;
+        padding: 0.5rem 2rem;
+        border: 0.1rem solid $greenAccent;
+        border-radius: 1rem
+    }
+
+    &__inputArea {
+        @include singleFont($openSans, 400, 1.8rem, 120%);
+        color: $textColor;
+        resize: none;
+        padding: 0.5rem 2rem;
+        border: 0.1rem solid $greenAccent;
+        border-radius: 1rem
+    }
+
+    &__inputFile {
+        @include singleFont($openSans, 400, 1.8rem, 120%);
+        color: $textColor;
+    }
+
+    &__button {
+        @include singleFont($openSans, 400, 1.8rem, 120%);
+        color: $white;
+        padding: 1rem 3rem;
+        background-color: $titleColor;
+        text-transform: uppercase;
+        width: fit-content;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    &__alert {
+        padding: 1rem 0;
+        @include singleFont($roboto, 400, 2rem, 120%);
+        color: $cartRed;
+    }
+}

@@ -10,7 +10,9 @@ import { Projects } from './Projects/Projects.tsx';
 import { Blog } from './Blog/Blog.tsx';
 import { Cart } from './Cart/Cart.tsx';
 import { Orders } from './Admin/Orders.tsx';
+import { Products } from './Admin/Products.tsx';
 import { AdminPanel } from './Admin/AdminPanel.tsx';
+import { Subscription } from './Admin/Subscription.tsx';
 import { Error } from './Error/Error.tsx';
 import { Thanks } from './Thanks/Thanks.tsx';
 
@@ -40,6 +42,8 @@ const router = createHashRouter([
 				element: <AdminLayout />,
 				children: [
 					{ path: 'orders', element: <Orders /> },
+					{ path: 'allProducts', element: <Products /> },
+					{ path: 'subscription', element: <Subscription /> },
 					{ path: 'addProduct', element: <AdminPanel /> },
 				],
 			},

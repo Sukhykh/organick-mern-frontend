@@ -1,0 +1,43 @@
+@import '../../assets/styles/module.scss';
+
+.teamSection {
+    padding-block: 17.7rem 20rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        padding-block: 5rem;
+    }
+
+    &__container {
+        @include container
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__titleWrapper {
+        padding-block: 0.5rem 1.6rem;
+        text-align: center;
+    }
+
+    &__text {
+        max-width: 85.2rem;
+        width: 100%;
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-align: center;
+    }
+
+    &__cardWrapper {
+        margin-block-start: 4.2rem;
+        display: flex;
+        gap: 2.7rem;
+        justify-content: center;
+
+        @media screen and (max-width: $breakpoint100) {
+            flex-wrap: wrap;
+        }
+    }
+}

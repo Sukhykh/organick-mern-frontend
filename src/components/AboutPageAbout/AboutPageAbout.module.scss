@@ -1,0 +1,77 @@
+@import '../../assets/styles/module.scss';
+
+.about {
+    padding-block: 20rem 14rem;
+
+    @media screen and (max-width: $breakpoint80) {
+        padding-block: 5rem;
+    }
+
+    &__container {
+        @include container
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+
+        
+        @media screen and (max-width: $breakpoint90) {
+            flex-direction: column-reverse;
+            gap: 3rem;
+        }
+    }
+
+    &__background {
+        position: absolute;
+        inset-block-start: -5rem;
+        inset-inline-start: -20rem;
+        z-index: -1;
+
+        @media screen and (max-width: $breakpoint140) {
+            inset-inline-start: -10rem;
+        }
+
+        @media screen and (max-width: $breakpoint90) {
+            position: static;
+            width: 100%;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    &__contant {
+        max-width: 67rem;
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        background-color: $opasity;
+    }
+
+    &__titleWrapper {
+        padding-block: 0.8rem 1.4rem;
+        max-width: 50rem;
+        width: 100%;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        margin-bottom: 3rem;
+    }
+
+    &__cardWrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-block-end: 5.8rem;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+}
+

@@ -1,0 +1,51 @@
+@import '../../assets/styles/module.scss';
+
+.advantageCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: $white;
+    border-radius: 3rem;
+    padding: 5rem 2.5rem;
+    max-width: 26rem;
+    width: 100%;
+
+    &__imgWrapper {
+        position: relative;
+        background-color: $sectionGray;
+        padding: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1.8rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 2.9rem;
+            height: 2.9rem;
+            border-radius: 50%;
+            background-color: $acoutUsCard;
+            transform: translateX(1rem) translateY(-1rem);
+        }
+    }
+
+    &__img {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        @include singleFont($roboto, 800, 2.5rem, 120%);
+        color: $titleColor;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    &__text {
+        @include singleFont($openSans, 400, 1.8rem, 165%);
+        color: $textColor;
+        text-align: center;
+    }
+}

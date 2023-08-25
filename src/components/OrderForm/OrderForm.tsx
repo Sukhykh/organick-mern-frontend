@@ -74,7 +74,9 @@ export const OrderForm = () => {
 				)
 				.then(() => clenCart())
 				.then(() => setIsOrder(false))
-				.then(() => navigate('thanks'))
+				.then(() => {
+					window.scrollTo({ top: 0, left: 0 })
+					navigate('thanks')})
 				.catch((error) =>
 					setResponceData(error.response?.data[0]?.msg)
 				);

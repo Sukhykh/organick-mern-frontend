@@ -41,8 +41,8 @@ export const useProductStore = create<State & Action>()(
                 const productsData = get().products
                 const lastIndex = get().slicer
                 const productsToShow = lastIndex ? 
-                    productsData.sort((a:Product, b:Product) => b.discount - a.discount).slice(0, lastIndex) :
-                    productsData.sort((a:Product, b:Product) => b.discount - a.discount)
+                    productsData?.sort((a:Product, b:Product) => b.discount - a.discount).slice(0, lastIndex) :
+                    productsData?.sort((a:Product, b:Product) => b.discount - a.discount)
                 set({ productsToShow: productsToShow })
             },
             setCurentProduct: (id) => {

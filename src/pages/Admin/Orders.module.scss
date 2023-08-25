@@ -1,6 +1,7 @@
 @import '../../assets/styles/module.scss';
 
 .orders {
+    background-color: $sectionGray;
 
     &__container {
         @include container;
@@ -8,9 +9,10 @@
 
     &__wrapper {
         padding-block: 5rem;
+        margin-block-end: 5rem;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     &__titleWrapper {
@@ -69,11 +71,5 @@
     &__productQuantity {
         @include singleFont($roboto, 500, 2rem, 120%);
         color: $titleColor;
-    }
-
-    &__noOrdersTitle {
-        @include singleFont($roboto, 700, 7rem, 120%);
-        color: $titleColor;
-        text-align: center;
     }
 }

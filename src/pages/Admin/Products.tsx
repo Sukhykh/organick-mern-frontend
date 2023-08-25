@@ -37,7 +37,7 @@ export const Products = () => {
 		} catch (error) {
 			console.error('Error fetching and setting products:', error);
 		}
-	}, [products]);
+	}, []);
 
 	const handleEdit = async (e: any, id: string) => {
 		e.preventDefault();
@@ -64,6 +64,7 @@ export const Products = () => {
 		e.preventDefault();
 		try {
 			const response = await axiosBasic.delete(`/products/${id}`);
+			setProducts();
 			console.log(response);
 		} catch (error) {
 			console.log(error);
